@@ -3,6 +3,7 @@ package org.jboss.jdf.ticketmonster.test.rest;
 import org.jboss.jdf.example.ticketmonster.model.Booking;
 import org.jboss.jdf.example.ticketmonster.rest.BaseEntityService;
 import org.jboss.jdf.example.ticketmonster.rest.CartService;
+import org.jboss.jdf.example.ticketmonster.rest.search.SearchService;
 import org.jboss.jdf.example.ticketmonster.service.*;
 import org.jboss.jdf.example.ticketmonster.util.MultivaluedHashMap;
 import org.jboss.jdf.ticketmonster.test.TicketMonsterDeployment;
@@ -18,6 +19,7 @@ public class RESTDeployment {
         return TicketMonsterDeployment.deployment()
                 .addPackage(Booking.class.getPackage())
                 .addPackage(BaseEntityService.class.getPackage())
+                .addPackage(SearchService.class.getPackage())
                 .addPackage(MultivaluedHashMap.class.getPackage())
                 .addClass(CartStore.class)
                 .addClass(CartService.class)
@@ -26,6 +28,7 @@ public class RESTDeployment {
                 .addClass(AllocatedSeats.class)
                 .addClass(MediaPath.class)
                 .addClass(MediaManager.class)
+                .addClass(Bootstrap.class)
                 .addAsLibraries(DependencyResolvers.use(MavenDependencyResolver.class)
                         .loadMetadataFromPom("pom.xml")
                         .artifact("org.infinispan:infinispan-core").scope("test").resolveAsFiles());
