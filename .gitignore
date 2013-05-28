@@ -21,10 +21,6 @@ out
 *.iws
 *.iml
 atlassian-ide-plugin.xml
-.classpath
-.project
-.settings
-.metadata
 bin
 .nbattrs
 *.log
