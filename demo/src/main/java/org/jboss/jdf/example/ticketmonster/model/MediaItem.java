@@ -13,7 +13,6 @@ import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.URL;
 
-import org.jboss.errai.common.client.api.annotations.Portable;
 
 /**
  * <p>
@@ -34,7 +33,6 @@ import org.jboss.errai.common.client.api.annotations.Portable;
  */
 @SuppressWarnings("serial")
 @Entity
-@Portable
 public class MediaItem implements Serializable {
 
     /* Declaration of fields */
