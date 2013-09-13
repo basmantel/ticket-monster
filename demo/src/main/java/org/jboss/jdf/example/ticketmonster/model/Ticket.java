@@ -45,7 +45,6 @@ public class Ticket implements Serializable {
      * The seat must be specifed, and the Bean Validation constraint <code>@NotNull</code> ensures this.
      * </p>
      */
-    @NotNull
     private Seat seat;
 
     /**
@@ -58,7 +57,6 @@ public class Ticket implements Serializable {
      * </p>
      */
     @ManyToOne
-    @NotNull
     private TicketCategory ticketCategory;
 
     /**

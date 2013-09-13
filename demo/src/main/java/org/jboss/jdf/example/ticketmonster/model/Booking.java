@@ -64,8 +64,6 @@ public class Booking implements Serializable {
      */
     @OneToMany(fetch = EAGER, cascade = ALL)
     @JoinColumn
-    @NotEmpty
-    @Valid
     private Set<Ticket> tickets = new HashSet<Ticket>();
 
     /**
@@ -85,7 +83,6 @@ public class Booking implements Serializable {
      * <code>@NotEmpty<code> Bean Validation constraint means that the booking must contain a cancellation code of at least 1 character.
      * </p>
      */
-    @NotEmpty
     private String cancellationCode;
 
     /**
@@ -99,7 +96,6 @@ public class Booking implements Serializable {
      * </p>
      * 
      */
-    @NotNull
     private Date createdOn = new Date();
 
     /**
@@ -118,8 +114,6 @@ public class Booking implements Serializable {
      * </ol>
      * 
      */
-    @NotEmpty
-    @Email(message = "Not a valid email format")
     private String contactEmail;
 
     /**
