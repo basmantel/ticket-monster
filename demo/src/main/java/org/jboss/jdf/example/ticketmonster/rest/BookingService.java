@@ -11,8 +11,6 @@ import java.util.TreeMap;
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
@@ -192,17 +190,6 @@ public class BookingService extends BaseEntityService<Booking> {
                 responseEntity.put("errors", Collections.singletonList("Cannot allocate the requested number of seats!"));
                 return Response.status(Response.Status.BAD_REQUEST).entity(responseEntity).build();
             }
-        } catch (ConstraintViolationException e) {
-            // If validation of the data failed using Bean Validation, then send an error
-            Map<String, Object> errors = new HashMap<String, Object>();
-            List<String> errorMessages = new ArrayList<String>();
-            for (ConstraintViolation<?> constraintViolation : e.getConstraintViolations()) {
-                errorMessages.add(constraintViolation.getMessage());
-            }
-            errors.put("errors", errorMessages);
-            // A WebApplicationException can wrap a response
-            // Throwing the exception causes an automatic rollback
-            throw new RestServiceException(Response.status(Response.Status.BAD_REQUEST).entity(errors).build());
         } catch (Exception e) {
             // Finally, handle unexpected exceptions
             Map<String, Object> errors = new HashMap<String, Object>();
