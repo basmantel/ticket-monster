@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -64,6 +65,7 @@ public class Booking implements Serializable {
      */
     @OneToMany(fetch = EAGER, cascade = ALL)
     @JoinColumn
+    @Valid
     private Set<Ticket> tickets = new HashSet<Ticket>();
 
     /**
@@ -71,6 +73,7 @@ public class Booking implements Serializable {
      * <code>@ManyToOne<code> JPA mapping establishes this relationship.
      */
     @ManyToOne
+    @NotNull
     private Performance performance;
 
     /**
@@ -83,6 +86,8 @@ public class Booking implements Serializable {
      * <code>@NotEmpty<code> Bean Validation constraint means that the booking must contain a cancellation code of at least 1 character.
      * </p>
      */
+    @NotEmpty
+    @CancellationCode
     private String cancellationCode;
 
     /**
@@ -96,6 +101,7 @@ public class Booking implements Serializable {
      * </p>
      * 
      */
+    @NotNull @Past
     private Date createdOn = new Date();
 
     /**
@@ -114,6 +120,7 @@ public class Booking implements Serializable {
      * </ol>
      * 
      */
+    @NotNull @Email(message="'${validatedValue}' does not look like an email.")
     private String contactEmail;
 
     /**

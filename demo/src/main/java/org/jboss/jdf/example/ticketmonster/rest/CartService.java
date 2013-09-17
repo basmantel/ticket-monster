@@ -166,6 +166,7 @@ public class CartService {
 
             booking.setCancellationCode("abc");
             entityManager.persist(booking);
+            entityManager.flush();
             cartStore.delete(cart);
             newBookingEvent.fire(booking);
             return Response.ok().entity(booking).type(MediaType.APPLICATION_JSON_TYPE).build();
