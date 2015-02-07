@@ -335,11 +335,27 @@
 
                 <!-- The JBoss AS plugin deploys your war to a local JBoss AS container -->
                 <!-- To use run: mvn package jboss-as:deploy -->
-                <plugin>
+                
+           <!--     <plugin>
                     <groupId>org.jboss.as.plugins</groupId>
                     <artifactId>jboss-as-maven-plugin</artifactId>
                     <version>7.3.Final</version>
                 </plugin>
+              -->
+
+                <plugin>
+                    <groupId>org.jboss.as.plugins</groupId>
+                    <artifactId>jboss-as-maven-plugin</artifactId>
+                    <version>7.3.Final</version>
+                    <configuration>
+                      <hostname>192.168.4.171</hostname>
+                      <port>8080</port>
+                      <name>testuser</name>
+                      <password>iedzivdw6</password>
+                    </configuration>
+                 </plugin>
+
+
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
