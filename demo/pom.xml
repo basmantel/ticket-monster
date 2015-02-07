@@ -349,7 +349,7 @@
                     <version>7.3.Final</version>
                     <configuration>
                       <hostname>192.168.104.188</hostname>
-                      <port>8080</port>
+                      <port>9999</port>
                       <name>testuser</name>
                       <password>iedzivdw6</password>
                     </configuration>
