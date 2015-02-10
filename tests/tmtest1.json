@@ -5,7 +5,18 @@
   "steps": [
     {
       "type": "get",
-      "url": "http://192.168.4.171:8080/ticket-monster/booking-monitor.html"
+      "url": "http://192.168.4.171:8080/ticket-monster/#about"
+    },
+    {
+      "type": "verifyTextPresent",
+      "text": "TicketMonster is an online ticketing demo application that gets you started with JBoss technologies, and helps you learn and evaluate them."
+    },
+    {
+      "type": "clickElement",
+      "locator": {
+        "type": "xpath",
+        "value": "//div[@class='hero-unit']/p[5]"
+      }
     }
   ],
   "data": {
