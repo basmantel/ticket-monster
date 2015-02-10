@@ -1,5 +1,21 @@
-# -*- coding: utf-8 -*-
-from selenium.webdriver.firefox.webdriver import WebDriver
+
+from selenium import webdriver
+
+sauce_url = "http://jimleitch:3eb84966-ba07-4e0d-98a5-ed1d2f3e2ef8@ondemand.saucelabs.com:80/wd/hub"
+
+desired_capabilities = {
+    'platform': "Mac OS X 10.9",
+    'browserName': "chrome",
+    'version': "31",
+}
+
+driver = webdriver.Remote(desired_capabilities=desired_capabilities,
+                          command_executor=sauce_url)
+driver.implicitly_wait(10)
+
+
+
+
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 
